@@ -1,0 +1,30 @@
+<app-product-search></app-product-search>
+<div class="row mt-4">
+    <div class="col-4 mt-4" *ngFor="let product of products">
+    <div class="card">
+    <img src="{{product.imageUrl}}" class="card-img-top" alt="Simple product">
+    <div class="card-body">
+    <h5 class="card-title">{{ product.title }}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <a [routerLink]="['product', product.id]" class="btn btn-primary ml-2">View Details</a>
+
+    <span *ngIf="confirmDelete">
+      <div *ngIf="product.id">
+      <span>Are you sure you want to delete this item?</span>
+        <button class="btn btn-danger" (click)="onDelete(product.id)">Yes</button>
+        <button class="btn btn-primary" (click)="confirmDelete=false">No</button>
+      </div>
+    </span>
+ 
+    <button *ngIf="!confirmDelete" class="btn btn-danger" (click)="confirmDelete=true">Delete</button>
+        </div>
+        </div>
+        </div>
+        <div *ngIf="showLoader">
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+
+

@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router,  NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Event } from '@angular/router';
 
-
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class AppComponent {
-  title = 'product-store';
-  showLoader = true;
+export class HeaderComponent implements OnInit {
+  showLoader: boolean = true;
 
   constructor(private router: Router) { 
     this.router.events.subscribe((routerEvent: Event) =>
@@ -24,6 +22,9 @@ export class AppComponent {
         this.showLoader = false;
       }
     });
+  }
+
+  ngOnInit(): void {
   }
 
 }
