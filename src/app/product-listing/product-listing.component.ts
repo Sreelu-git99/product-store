@@ -3,19 +3,22 @@ import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, RouterEvent } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { FilterPipe } from '../filter.pipe';
+import { ProductSearchComponent } from '../product-search/product-search.component';
 
 
 @Component({
   selector: 'app-product-listing',
   templateUrl: './product-listing.component.html',
-  styleUrls: ['./product-listing.component.scss']
+  styleUrls: ['./product-listing.component.scss'],
+  providers: [FilterPipe]
 })
 export class ProductListingComponent implements OnInit {
   products:any = [];
   prod:any = [];
   showLoader: boolean = true;
   confirmDelete: boolean = false;
-  // filteredProducts: products: any;
+  @Input() searchTerm;
 
   constructor(private productService: ProductService) {
   }

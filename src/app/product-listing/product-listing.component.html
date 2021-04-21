@@ -1,6 +1,6 @@
 <app-product-search></app-product-search>
 <div class="row mt-4">
-    <div class="col-4 mt-4" *ngFor="let product of products">
+    <div class="col-4 mt-4" *ngFor="let product of products | filter: searchTerm">
     <div class="card">
     <img src="{{product.imageUrl}}" class="card-img-top" alt="Simple product">
     <div class="card-body">

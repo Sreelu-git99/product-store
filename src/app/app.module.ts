@@ -11,6 +11,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductService } from './product.service';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProductListingComponent,
     ProductSearchComponent,
     ProductDetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
